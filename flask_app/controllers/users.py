@@ -9,6 +9,8 @@ bcrypt = Bcrypt(app)
 # INDEX
 @app.route('/')
 def index():
+    if 'user_id' in session:
+        return redirect('/arbortrary')
     return render_template('index.html')
 
 # MAIN DASHBOARD
