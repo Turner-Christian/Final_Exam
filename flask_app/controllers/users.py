@@ -64,16 +64,16 @@ def register():
 @app.route('/login', methods=['POST'])
 def login():
     if not User.vald_user_login(request.form):
-        return redirect('/')
+        return redirect('/login_page')
     email = { 'email' : request.form['email'] }
     user_in_db = User.user_in_db(email)
     print('user:', user_in_db)
     if not user_in_db:
         flash('Invalid Email/Password', 'login')
-        return redirect('/')
+        return redirect('/login_page')
     if not bcrypt.check_password_hash(user_in_db.password, request.form['password']):
         flash('Invalid Email/Password', 'login')
-        return redirect('/')
+        return redirect('/login_page')
     session['user_id'] = user_in_db.id
     return redirect('/arbortrary')
 

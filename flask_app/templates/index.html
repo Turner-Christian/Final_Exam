@@ -46,7 +46,7 @@
             </HR>
             {% with messages = get_flashed_messages(category_filter=["register"]) %}
                     {% if messages %}
-                        <ul class="list-unstyled p-2 text-danger">
+                        <ul class="list-unstyled p-2 text-decoration-underline">
                             {% for msg in messages %}
                                 <li>{{msg}}</li>
                             {% endfor %}
