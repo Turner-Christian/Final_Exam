@@ -6,18 +6,18 @@ from flask import flash,render_template,redirect,session,request
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
-@app.route('/landing')
-def landing():
+@app.route('/register_page')
+def register_page():
     if 'user_id' in session:
         return redirect('/arbortrary')
-    return render_template('landing.html')
+    return render_template('index.html')
 
 # INDEX -->register<--
 @app.route('/')
 def index():
     if 'user_id' in session:
         return redirect('/arbortrary')
-    return render_template('index.html')
+    return render_template('landing.html')
 
 # --> login page <--
 @app.route('/login_page')
@@ -48,13 +48,13 @@ def logout():
 def register():
     email = { 'email' : request.form['email'] }
     if not User.vald_user_reg(request.form):
-        return redirect('/')
+        return redirect('/register_page')
     if request.form['password'] != request.form['confirm_password']:
         flash('Passwords do not match', 'register')
-        return redirect('/')
+        return redirect('/register_page')
     if User.if_user_in_db(email) == True:
         flash('Email is already registered', 'register')
-        return redirect('/')
+        return redirect('/register_page')
     pw_hash = bcrypt.generate_password_hash(request.form['password'])
     data = {
         'first_name': request.form['first_name'],
