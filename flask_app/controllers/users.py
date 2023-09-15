@@ -6,14 +6,21 @@ from flask import flash,render_template,redirect,session,request
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
-# INDEX
+# INDEX -->register<--
 @app.route('/')
 def index():
     if 'user_id' in session:
         return redirect('/arbortrary')
     return render_template('index.html')
 
-# MAIN DASHBOARD
+# --> login page <--
+@app.route('/login_page')
+def login_page():
+    if 'user_id' in session:
+        return redirect('/arbortrary')
+    return (render_template('login.html'))
+
+# MAIN DASHBOARD 
 @app.route('/arbortrary')
 def arbortrary():
     if 'user_id' not in session:
@@ -22,6 +29,7 @@ def arbortrary():
     user = User.id_in_db(data)
     trees = Tree.get_all_trees()
     return render_template('arbortrary.html', user=user, trees=trees)
+
 
 # LOGOUT
 @app.route('/logout')
