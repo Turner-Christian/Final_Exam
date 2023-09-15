@@ -1,0 +1,55 @@
+body {
+    background-color: rgb(101, 133, 117);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+header img {
+    width: 10rem;
+}
+
+#button {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    font-size: 1.2rem;
+    transition: .5s;
+}
+
+#button:hover {
+    transform:translateY(1rem);
+    transition: .5s;
+}
+
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+
+}

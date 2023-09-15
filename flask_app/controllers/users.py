@@ -6,6 +6,12 @@ from flask import flash,render_template,redirect,session,request
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
+@app.route('/landing')
+def landing():
+    if 'user_id' in session:
+        return redirect('/arbortrary')
+    return render_template('landing.html')
+
 # INDEX -->register<--
 @app.route('/')
 def index():
