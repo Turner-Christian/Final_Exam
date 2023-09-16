@@ -36,57 +36,56 @@
 </head>
 
 <body class="">
-    <div class="">
-        <header class="bg-white">
-            <div class="d-flex align-items-center">
-                <h1>Arbortrary</h1>
-            </div>
-            <nav>
-                <ul class="gap-4 list-unstyled mb-0">
-                    <li><a class="text-decoration-none text-dark" href="/user/account">My Trees</a></li>
-                    <li><a class="text-decoration-none text-dark" href="/new/tree">Plant a Tree</a></li>
-                    <li><a class="text-decoration-none text-dark" href="/logout">Logout</a></li>
-                </ul>
-            </nav>
+    <header class="bg-white">
+        <div class="d-flex align-items-center">
+            <h1>Arbortrary</h1>
+        </div>
+        <nav>
+            <ul class="gap-4 list-unstyled mb-0">
+                <li><a class="text-decoration-none text-dark" href="/arbortrary">Dashboard</a></li>
+                <li><a class="text-decoration-none text-dark" href="/user/account">My Trees</a></li>
+                <li><a class="text-decoration-none text-dark" href="/new/tree">Plant a Tree</a></li>
+                <li><a class="text-decoration-none text-dark" href="/logout">Logout</a></li>
+            </ul>
+        </nav>
 
-            <button id="ham-menu" class="btn btn-white" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasRight">
-                <img id="hamburger" src="../static/icons8-hamburger-50.png" alt="nav icon">
-            </button>
-            <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasRight"
-                aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header">
-                    <button type="button" class="btn-close text-reset text-end" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body d-flex align-items-center justify-content-center">
-                    <ul id="hamburger-nav" class="d-flex flex-column list-unstyled align-items-center gap-3">
-                        <li><a class="text-decoration-none nav-hover" href="/user/account">My Trees</a></li>
-                        <li><a class="text-decoration-none nav-hover" href="/new/tree">Plant A Tree</a></li>
-                        <li><a class="text-decoration-none nav-hover" href="/logout">Logout</a></li>
-                    </ul>
-                </div>
+        <button id="ham-menu" class="btn btn-white" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight">
+            <img id="hamburger" src="../static/icons8-hamburger-50.png" alt="nav icon">
+        </button>
+        <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close text-reset text-end" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
             </div>
-        </header>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Species</th>
-                    <th>Planted By</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in trees %}
-                <tr>
-                    <td>{{row.species}}</td>
-                    <td>{{row.creator.first_name}}</td>
-                    <td><a class="btn bg-dark text-white" href="/show/{{row.id}}">Details</a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+            <div class="offcanvas-body d-flex align-items-center justify-content-center">
+                <ul id="hamburger-nav" class="d-flex flex-column list-unstyled align-items-center gap-3">
+                    <li><a class="text-decoration-none nav-hover" href="/arbortrary">Dashboard</a></li>
+                    <li><a class="text-decoration-none nav-hover" href="/user/account">My Trees</a></li>
+                    <li><a class="text-decoration-none nav-hover" href="/new/tree">Plant A Tree</a></li>
+                    <li><a class="text-decoration-none nav-hover" href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Species</th>
+                <th>Planted By</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in trees %}
+            <tr>
+                <td>{{row.species}}</td>
+                <td>{{row.creator.first_name}}</td>
+                <td><a class="btn bg-dark text-white" href="/show/{{row.id}}">Details</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 
 </html>
