@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
     <title>Arbortrary</title>
+    <link rel="stylesheet" href="../static/style-arbortrary.css">
     <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUFuG/1Bbhv8AAAAAAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFBbhv9QW4b/AAAAAAAAAAAA
@@ -29,24 +34,40 @@
     AAAA/n8AAP5/AAD+fwAA/j8AAP4/AADgDwAAwAMAAMADAACAAQAAgAEAAIADAADAAwAA4AcAAPAP
     AAD4HwAA/n8AAA==">
 </head>
-<body class="bg-dark">
-    <div class="container-lg bg-dark-subtle rounded">
-        <div class="myheader">
-            <div class="d-flex justify-content-between">
+
+<body class="">
+    <div class="">
+        <header class="bg-white">
+            <div class="d-flex align-items-center">
                 <h1>Arbortrary</h1>
-                <div class="d-flex gap-5">
-                    <a class="d-flex align-items-center text-decoration-none link-dark" href="/user/account">My Trees</a>
-                    <h2 class="d-flex align-items-center">Welcome {{user.first_name}}</h2>
+            </div>
+            <nav>
+                <ul class="gap-4 list-unstyled mb-0">
+                    <li><a class="text-decoration-none text-dark" href="/user/account">My Trees</a></li>
+                    <li><a class="text-decoration-none text-dark" href="/new/tree">Plant a Tree</a></li>
+                    <li><a class="text-decoration-none text-dark" href="/logout">Logout</a></li>
+                </ul>
+            </nav>
+
+            <button id="ham-menu" class="btn btn-white" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight">
+                <img id="hamburger" src="../static/icons8-hamburger-50.png" alt="nav icon">
+            </button>
+            <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasRight"
+                aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close text-reset text-end" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body d-flex align-items-center justify-content-center">
+                    <ul id="hamburger-nav" class="d-flex flex-column list-unstyled align-items-center gap-3">
+                        <li><a class="text-decoration-none nav-hover" href="/user/account">My Trees</a></li>
+                        <li><a class="text-decoration-none nav-hover" href="/new/tree">Plant A Tree</a></li>
+                        <li><a class="text-decoration-none nav-hover" href="/logout">Logout</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="d-flex justify-content-between">
-                <p>A site to track randomly placed trees</p>
-                <div>
-                    <a class="btn bg-info-subtle" href="/new/tree">Plant a Tree</a>
-                    <a class="btn bg-info-subtle" href="/logout">Logout</a>
-                </div>
-            </div>
-        </div>
+        </header>
         <table class="table">
             <thead>
                 <tr>
@@ -57,14 +78,15 @@
             </thead>
             <tbody>
                 {% for row in trees %}
-                    <tr>
-                        <td>{{row.species}}</td>
-                        <td>{{row.creator.first_name}}</td>
-                        <td><a class="btn bg-dark text-white" href="/show/{{row.id}}">Details</a></td>
-                    </tr>
+                <tr>
+                    <td>{{row.species}}</td>
+                    <td>{{row.creator.first_name}}</td>
+                    <td><a class="btn bg-dark text-white" href="/show/{{row.id}}">Details</a></td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
 </body>
+
 </html>
