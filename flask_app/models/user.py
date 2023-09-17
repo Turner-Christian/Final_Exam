@@ -52,8 +52,11 @@ class User:
     def user_in_db(cls,data):
         query = 'SELECT * from users WHERE email = %(email)s'
         result = MySQLConnection(cls.DB).query_db(query,data)
-        # print(result)
-        return cls(result[0])
+        print(result)
+        if len(result) < 1:
+            return False
+        else:
+            return cls(result[0])
 
     # VALDITATION OF USER LOGGING IN
     @staticmethod
