@@ -61,7 +61,7 @@
                     aria-label="Close"></button>
             </div>
             <div class="offcanvas-body d-flex align-items-center justify-content-center">
-                <ul id="hamburger-nav" class="d-flex flex-column list-unstyled align-items-center gap-3">
+                <ul id="hamburger-nav">
                     <li><a class="text-decoration-none nav-hover" href="/arbortrary">Dashboard</a></li>
                     <li><a class="text-decoration-none nav-hover" href="/user/account">My Trees</a></li>
                     <li><a class="text-decoration-none nav-hover" href="/new/tree">Plant A Tree</a></li>
@@ -71,20 +71,22 @@
         </div>
     </header>
 
-    <h2 class="text-center">{{tree.species}} planted by {{user.first_name}} {{user.last_name}}</h2>
-    <div class="card">
-        <div class="d-flex justify-content-evenly">
-            <div class="d-flex align-items-center gap-2">
-                <p><strong>Where:</strong></p>
-                <p>{{tree.location}}</p>
-            </div>
-            <div class="d-flex align-items-center gap-2">
-                <p><strong>When:</strong></p>
-                <p>{{tree.date_planted.strftime("%B %d, %Y")}}</p>
-            </div>
-            <div class="d-flex align-items-center gap-2 ">
-                <p><strong>Reason:</strong></p>
-                <p>{{tree.reason}}</p>
+    <h2 class="text-center text-white mt-5">{{tree.species}} planted by {{user.first_name}} {{user.last_name}}</h2>
+    <div class="container-md d-flex flex-column align-items-center">
+        <div class="mt-5">
+            <div class="post-card mb-5">
+                <div class="card-header d-flex align-items-center justify-content-between">
+                    <img src="../static/icons8-avatar-64.png" alt="avatar icon">
+                    <h3>{{user.first_name}}</h3>
+                </div>
+                <hr class="mx-3 border border-black">
+                <div class="card-content">
+                    <ul>
+                        <li>Where: {{tree.location}}</li>
+                        <li>Reason: {{tree.reason}}</li>
+                        <li>Date Planted: {{tree.date_planted.strftime("%B %d, %Y")}}</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

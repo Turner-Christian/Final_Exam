@@ -34,6 +34,25 @@ header p {
     width: 2rem;
 }
 
+#hamburger-nav {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    text-align: center;
+    gap: 3rem;
+}
+
+#hamburger-nav li a {
+    font-size: 2rem;
+    color: black;
+    transition: .2s;
+}
+
+#hamburger-nav li a:hover {
+    font-size: 2.5rem;
+    opacity: .5;
+    transition: .2s;
+}
 
 nav {
     display: none;

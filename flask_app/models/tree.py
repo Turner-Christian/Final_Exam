@@ -128,7 +128,7 @@ class Tree:
         ORDER BY trees.date_planted DESC
         """
         results = MySQLConnection(cls.DB).query_db(query)
-        print(results)
+        # print(results)
         all_trees = []
         for row in results:
             posting_user = user.User({

@@ -42,7 +42,7 @@ def update():
     if not Tree.vald_tree(request.form):
         return redirect('/user/account')
     Tree.update_tree(request.form)
-    return redirect('/user/account')
+    return redirect('/arbortrary')
 
 # SHOW TREE BY ITS ID IN THE DB
 @app.route('/show/<int:id>')

@@ -56,7 +56,7 @@
                     aria-label="Close"></button>
             </div>
             <div class="offcanvas-body d-flex align-items-center justify-content-center">
-                <ul id="hamburger-nav" class="d-flex flex-column list-unstyled align-items-center gap-3">
+                <ul id="hamburger-nav">
                     <li><a class="text-decoration-none nav-hover" href="/arbortrary">Dashboard</a></li>
                     <li><a class="text-decoration-none nav-hover" href="/user/account">My Trees</a></li>
                     <li><a class="text-decoration-none nav-hover" href="/new/tree">Plant A Tree</a></li>
@@ -75,7 +75,7 @@
                         </ul>
                     {% endif %}
                 {% endwith %}
-        <h2 class="text-center">Re-Plant Your Tree</h2>
+        <h2 class="text-center text-white mt-5">Re-Plant Your Tree</h2>
         <div class="d-flex justify-content-center">
             <div class="card m-3 p-3" style="width: 25rem;">
                 <form action="/update" method="post">
