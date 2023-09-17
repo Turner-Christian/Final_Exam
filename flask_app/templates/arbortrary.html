@@ -38,6 +38,7 @@
 <body class="">
     <header class="bg-white">
         <div class="d-flex align-items-center">
+            <img id="logo" src="../static/icons8-tree-100.png" alt="tree-icon">
             <h1>Arbortrary</h1>
         </div>
         <nav>
@@ -82,6 +83,9 @@
                 <td>{{row.species}}</td>
                 <td>{{row.creator.first_name}}</td>
                 <td><a class="btn bg-dark text-white" href="/show/{{row.id}}">Details</a></td>
+                {% if row.user_id == user.id %}
+                <td><a class="btn bg-dark text-white" href="/edit/{{row.id}}">Edit</a></td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>

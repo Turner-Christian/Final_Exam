@@ -95,7 +95,7 @@ class Tree:
         WHERE trees.id = %(id)s;
         """
         result = MySQLConnection(cls.DB).query_db(query,data)
-        print(result)
+        # print(result)
         for row in result:
             posting_user = user.User({
                 'id': row['user_id'],
@@ -127,7 +127,7 @@ class Tree:
         JOIN users ON trees.user_id = users.id
         """
         results = MySQLConnection(cls.DB).query_db(query)
-        print(results)
+        # print(results)
         all_trees = []
         for row in results:
             posting_user = user.User({

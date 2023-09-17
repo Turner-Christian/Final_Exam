@@ -7,6 +7,10 @@ body {
     align-items: center; */
 }
 
+#logo {
+    width: 4rem;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -67,14 +71,14 @@ nav {
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     header {
-        padding: 1rem 2rem 1rem 2rem;
+        padding: .5rem 2rem .5rem 2rem;
     }
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     header {
-        padding: 1rem 4rem 1rem 4rem;
+        padding: .5rem 4rem .5rem 4rem;
     }
 }
 
