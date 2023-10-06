@@ -81,6 +81,7 @@ def login():
         flash('Invalid Email/Password', 'login')
         return redirect('/login_page')
     session['user_id'] = user_in_db.id
+    print(bcrypt.check_password_hash(user_in_db.password, request.form['password']))
     return redirect('/arbortrary')
 
 # GOES TO USERS PROFILE
